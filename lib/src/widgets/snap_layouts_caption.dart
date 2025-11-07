@@ -79,39 +79,40 @@ class _SnapLayoutsCaptionState extends State<SnapLayoutsCaption>
         children: [
           // Window icon
           if (widget.icon != null)
-          Padding(
-            padding: EdgeInsets.only(left: 6),
-            child: SizedBox(
-              width: 18,
-              height: 18,
-              child: widget.icon ?? FlutterLogo(),
-            ),
-          ),
-          // Title area with drag-to-move functionality
-          Expanded(
-            child: DragToMoveArea(
+            Padding(
+              padding: EdgeInsets.only(left: 6),
               child: SizedBox(
-                height: double.infinity,
-                child: Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 6),
-                      child: DefaultTextStyle(
-                        style: TextStyle(
-                          color:
-                              widget.brightness == Brightness.dark
-                                  ? Colors.white
-                                  : Colors.black.withValues(alpha: 0.8956),
-                          fontSize: 12,
+                width: 18,
+                height: 18,
+                child: widget.icon ?? FlutterLogo(),
+              ),
+            ),
+          // Title area with drag-to-move functionality
+          if (widget.title != null)
+            Expanded(
+              child: DragToMoveArea(
+                child: SizedBox(
+                  height: double.infinity,
+                  child: Row(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(left: 6),
+                        child: DefaultTextStyle(
+                          style: TextStyle(
+                            color:
+                                widget.brightness == Brightness.dark
+                                    ? Colors.white
+                                    : Colors.black.withValues(alpha: 0.8956),
+                            fontSize: 12,
+                          ),
+                          child: widget.title ?? SizedBox.shrink(),
                         ),
-                        child: widget.title ?? SizedBox.shrink(),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ),
             ),
-          ),
           // Custom action buttons
           widget.actions.isNotEmpty
               ? Padding(
