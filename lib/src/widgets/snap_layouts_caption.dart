@@ -78,6 +78,7 @@ class _SnapLayoutsCaptionState extends State<SnapLayoutsCaption>
       child: Row(
         children: [
           // Window icon
+          if (widget.icon != null)
           Padding(
             padding: EdgeInsets.only(left: 6),
             child: SizedBox(
